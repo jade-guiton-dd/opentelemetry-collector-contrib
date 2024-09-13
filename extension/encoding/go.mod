@@ -4,7 +4,7 @@ go 1.22.0
 
 require (
 	go.opentelemetry.io/collector/extension v0.109.0
-	go.opentelemetry.io/collector/pdata v1.15.0
+	go.opentelemetry.io/collector/pdata v1.15.1-0.20240911162712-6c2697c4453c
 )
 
 require (
@@ -22,7 +22,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	go.opentelemetry.io/collector/component v0.109.0 // indirect
 	go.opentelemetry.io/collector/config/configtelemetry v0.109.0 // indirect
-	go.opentelemetry.io/collector/confmap v1.15.0 // indirect
+	go.opentelemetry.io/collector/confmap v1.15.1-0.20240911162712-6c2697c4453c // indirect
 	go.opentelemetry.io/otel v1.29.0 // indirect
 	go.opentelemetry.io/otel/metric v1.29.0 // indirect
 	go.opentelemetry.io/otel/trace v1.29.0 // indirect
