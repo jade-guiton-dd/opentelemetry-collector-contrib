@@ -35,11 +35,11 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/zipkinreceiver v0.109.0
 	go.opentelemetry.io/collector/component v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/confmap v1.15.1-0.20240911162712-6c2697c4453c
-	go.opentelemetry.io/collector/confmap/provider/envprovider v1.15.1-0.20240911162712-6c2697c4453c
+	go.opentelemetry.io/collector/confmap/provider/envprovider v1.15.0
 	go.opentelemetry.io/collector/confmap/provider/fileprovider v1.15.1-0.20240911162712-6c2697c4453c
-	go.opentelemetry.io/collector/confmap/provider/httpprovider v0.109.1-0.20240911162712-6c2697c4453c
-	go.opentelemetry.io/collector/confmap/provider/httpsprovider v0.109.1-0.20240911162712-6c2697c4453c
-	go.opentelemetry.io/collector/confmap/provider/yamlprovider v0.109.1-0.20240911162712-6c2697c4453c
+	go.opentelemetry.io/collector/confmap/provider/httpprovider v0.109.0
+	go.opentelemetry.io/collector/confmap/provider/httpsprovider v0.109.0
+	go.opentelemetry.io/collector/confmap/provider/yamlprovider v0.109.0
 	go.opentelemetry.io/collector/connector v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/exporter v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/exporter/debugexporter v0.109.1-0.20240911162712-6c2697c4453c
@@ -270,14 +270,14 @@ require (
 	go.opentelemetry.io/contrib/zpages v0.54.0 // indirect
 	go.opentelemetry.io/otel v1.30.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp v0.5.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.29.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.29.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.30.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.30.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.29.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.29.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.29.0 // indirect
-	go.opentelemetry.io/otel/exporters/prometheus v0.51.0 // indirect
+	go.opentelemetry.io/otel/exporters/prometheus v0.52.0 // indirect
 	go.opentelemetry.io/otel/exporters/stdout/stdoutlog v0.5.0 // indirect
-	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.29.0 // indirect
+	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.30.0 // indirect
 	go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.29.0 // indirect
 	go.opentelemetry.io/otel/log v0.5.0 // indirect
 	go.opentelemetry.io/otel/metric v1.30.0 // indirect
@@ -301,9 +301,9 @@ require (
 	golang.org/x/tools v0.23.0 // indirect
 	gonum.org/v1/gonum v0.15.1 // indirect
 	google.golang.org/api v0.188.0 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20240822170219-fc7c04adadcd // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240822170219-fc7c04adadcd // indirect
-	google.golang.org/grpc v1.66.0 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20240903143218-8af14fe29dc1 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240903143218-8af14fe29dc1 // indirect
+	google.golang.org/grpc v1.66.1 // indirect
 	google.golang.org/protobuf v1.34.2 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect

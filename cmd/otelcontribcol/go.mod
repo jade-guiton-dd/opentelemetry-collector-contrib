@@ -220,14 +220,14 @@ require (
 	go.opentelemetry.io/collector/confmap/provider/envprovider v1.15.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/confmap/provider/fileprovider v1.15.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/confmap/provider/httpprovider v0.109.1-0.20240911162712-6c2697c4453c
-	go.opentelemetry.io/collector/confmap/provider/httpsprovider v0.109.1-0.20240911162712-6c2697c4453c
+	go.opentelemetry.io/collector/confmap/provider/httpsprovider v0.109.0
 	go.opentelemetry.io/collector/confmap/provider/yamlprovider v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/connector v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/connector/forwardconnector v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/consumer/consumertest v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/exporter v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/exporter/debugexporter v0.109.1-0.20240911162712-6c2697c4453c
-	go.opentelemetry.io/collector/exporter/nopexporter v0.109.1-0.20240911162712-6c2697c4453c
+	go.opentelemetry.io/collector/exporter/nopexporter v0.109.0
 	go.opentelemetry.io/collector/exporter/otlpexporter v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/exporter/otlphttpexporter v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/extension v0.109.1-0.20240911162712-6c2697c4453c
@@ -238,7 +238,7 @@ require (
 	go.opentelemetry.io/collector/processor/batchprocessor v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/processor/memorylimiterprocessor v0.109.1-0.20240911162712-6c2697c4453c
 	go.opentelemetry.io/collector/receiver v0.109.1-0.20240911162712-6c2697c4453c
-	go.opentelemetry.io/collector/receiver/nopreceiver v0.109.1-0.20240911162712-6c2697c4453c
+	go.opentelemetry.io/collector/receiver/nopreceiver v0.109.0
 	go.opentelemetry.io/collector/receiver/otlpreceiver v0.109.1-0.20240911162712-6c2697c4453c
 	golang.org/x/sys v0.25.0
 )
@@ -811,12 +811,12 @@ require (
 	go.opentelemetry.io/contrib/zpages v0.54.0 // indirect
 	go.opentelemetry.io/otel v1.30.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp v0.5.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.29.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.29.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.29.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.30.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.30.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.30.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.29.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.29.0 // indirect
-	go.opentelemetry.io/otel/exporters/prometheus v0.51.0 // indirect
+	go.opentelemetry.io/otel/exporters/prometheus v0.52.0 // indirect
 	go.opentelemetry.io/otel/exporters/stdout/stdoutlog v0.5.0 // indirect
 	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.30.0 // indirect
 	go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.29.0 // indirect
