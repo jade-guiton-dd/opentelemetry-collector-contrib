@@ -214,23 +214,23 @@ require (
 	go.opentelemetry.io/collector/confmap/provider/envprovider v1.16.1-0.20240927195042-40396d5fc50c
 	go.opentelemetry.io/collector/confmap/provider/fileprovider v1.16.1-0.20240927195042-40396d5fc50c
 	go.opentelemetry.io/collector/confmap/provider/httpprovider v0.110.1-0.20240927195042-40396d5fc50c
-	go.opentelemetry.io/collector/confmap/provider/httpsprovider v0.110.1-0.20240927195042-40396d5fc50c
+	go.opentelemetry.io/collector/confmap/provider/httpsprovider v0.110.0
 	go.opentelemetry.io/collector/confmap/provider/yamlprovider v0.110.1-0.20240927195042-40396d5fc50c
 	go.opentelemetry.io/collector/connector v0.110.1-0.20240927195042-40396d5fc50c
-	go.opentelemetry.io/collector/connector/forwardconnector v0.110.1-0.20240927195042-40396d5fc50c
+	go.opentelemetry.io/collector/connector/forwardconnector v0.110.0
 	go.opentelemetry.io/collector/exporter v0.110.1-0.20240927195042-40396d5fc50c
 	go.opentelemetry.io/collector/exporter/debugexporter v0.110.1-0.20240927195042-40396d5fc50c
-	go.opentelemetry.io/collector/exporter/nopexporter v0.110.1-0.20240927195042-40396d5fc50c
+	go.opentelemetry.io/collector/exporter/nopexporter v0.110.0
 	go.opentelemetry.io/collector/exporter/otlpexporter v0.110.1-0.20240927195042-40396d5fc50c
-	go.opentelemetry.io/collector/exporter/otlphttpexporter v0.110.1-0.20240927195042-40396d5fc50c
+	go.opentelemetry.io/collector/exporter/otlphttpexporter v0.110.0
 	go.opentelemetry.io/collector/extension v0.110.1-0.20240927195042-40396d5fc50c
-	go.opentelemetry.io/collector/extension/zpagesextension v0.110.1-0.20240927195042-40396d5fc50c
+	go.opentelemetry.io/collector/extension/zpagesextension v0.110.0
 	go.opentelemetry.io/collector/otelcol v0.110.1-0.20240927195042-40396d5fc50c
 	go.opentelemetry.io/collector/processor v0.110.1-0.20240927195042-40396d5fc50c
 	go.opentelemetry.io/collector/processor/batchprocessor v0.110.1-0.20240927195042-40396d5fc50c
 	go.opentelemetry.io/collector/processor/memorylimiterprocessor v0.110.1-0.20240927195042-40396d5fc50c
 	go.opentelemetry.io/collector/receiver v0.110.1-0.20240927195042-40396d5fc50c
-	go.opentelemetry.io/collector/receiver/nopreceiver v0.110.1-0.20240927195042-40396d5fc50c
+	go.opentelemetry.io/collector/receiver/nopreceiver v0.110.0
 	go.opentelemetry.io/collector/receiver/otlpreceiver v0.110.1-0.20240927195042-40396d5fc50c
 	golang.org/x/sys v0.25.0
 )
