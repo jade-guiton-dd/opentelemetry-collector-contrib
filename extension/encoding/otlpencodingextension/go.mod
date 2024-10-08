@@ -6,9 +6,9 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/encoding v0.110.0
 	github.com/stretchr/testify v1.9.0
 	go.opentelemetry.io/collector/component v0.110.0
-	go.opentelemetry.io/collector/confmap v1.17.1-0.20241008152003-7365f25dde3e
+	go.opentelemetry.io/collector/confmap v1.17.1-0.20241008152029-ab02c33b13bd
 	go.opentelemetry.io/collector/extension v0.110.0
-	go.opentelemetry.io/collector/pdata v1.17.1-0.20241008152003-7365f25dde3e
+	go.opentelemetry.io/collector/pdata v1.17.1-0.20241008152029-ab02c33b13bd
 	go.uber.org/goleak v1.3.0
 )
 

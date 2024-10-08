@@ -12,11 +12,11 @@ require (
 	github.com/testcontainers/testcontainers-go v0.31.0
 	go.opentelemetry.io/collector/component v0.110.0
 	go.opentelemetry.io/collector/component/componentstatus v0.110.0
-	go.opentelemetry.io/collector/confmap v1.17.1-0.20241008152003-7365f25dde3e
+	go.opentelemetry.io/collector/confmap v1.17.1-0.20241008152029-ab02c33b13bd
 	go.opentelemetry.io/collector/consumer v0.110.0
 	go.opentelemetry.io/collector/consumer/consumertest v0.110.0
 	go.opentelemetry.io/collector/filter v0.110.0
-	go.opentelemetry.io/collector/pdata v1.17.1-0.20241008152003-7365f25dde3e
+	go.opentelemetry.io/collector/pdata v1.17.1-0.20241008152029-ab02c33b13bd
 	go.opentelemetry.io/collector/pipeline v0.110.0
 	go.opentelemetry.io/collector/receiver v0.110.0
 	go.opentelemetry.io/collector/semconv v0.110.0
