@@ -400,19 +400,21 @@ define updatehelper
 endef
 
 
-.PHONY: update-otel
-update-otel:$(MULTIMOD)
+.PHONY: update-otel-start update-otel-finish
+update-otel-start:$(MULTIMOD)
 	$(MULTIMOD) sync -s=true -o ../opentelemetry-collector -m stable --commit-hash $(OTEL_STABLE_VERSION)
 	git add . && git commit -s -m "[chore] multimod update stable modules" ; \
 	$(MULTIMOD) sync -s=true -o ../opentelemetry-collector -m beta --commit-hash $(OTEL_VERSION)
 	git add . && git commit -s -m "[chore] multimod update beta modules" ; \
 	$(MAKE) gotidy
+
+update-otel-finish:
 	$(call updatehelper,$(CORE_VERSIONS),$(GOMOD),./cmd/otelcontribcol/builder-config.yaml)
 	$(call updatehelper,$(CORE_VERSIONS),$(GOMOD),./cmd/oteltestbedcol/builder-config.yaml)
-	$(MAKE) genotelcontribcol
-	$(MAKE) genoteltestbedcol
-	$(MAKE) oteltestbedcol
-	$(MAKE) remove-toolchain
+#	$(MAKE) genotelcontribcol
+#	$(MAKE) genoteltestbedcol
+#	$(MAKE) oteltestbedcol
+#	$(MAKE) remove-toolchain
 
 .PHONY: otel-from-tree
 otel-from-tree:
