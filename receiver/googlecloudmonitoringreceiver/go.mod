@@ -25,7 +25,6 @@ require (
 	github.com/googleapis/gax-go/v2 v2.13.0 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
-	go.opentelemetry.io/collector/component/componentprofiles v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/internal/globalsignal v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/pipeline v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.54.0 // indirect
@@ -67,7 +66,7 @@ require (
 	golang.org/x/text v0.18.0 // indirect
 	google.golang.org/api v0.199.0
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240903143218-8af14fe29dc1 // indirect
-	google.golang.org/grpc v1.67.0 // indirect
-	google.golang.org/protobuf v1.34.2
+	google.golang.org/grpc v1.67.1 // indirect
+	google.golang.org/protobuf v1.35.1
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

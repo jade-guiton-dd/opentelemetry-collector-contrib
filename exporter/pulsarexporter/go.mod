@@ -69,7 +69,6 @@ require (
 	github.com/prometheus/procfs v0.15.1 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
-	go.opentelemetry.io/collector/component/componentprofiles v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/config/configtelemetry v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/consumer/consumerprofiles v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/consumer/consumertest v0.111.1-0.20241008152029-ab02c33b13bd // indirect
@@ -94,8 +93,8 @@ require (
 	golang.org/x/term v0.24.0 // indirect
 	golang.org/x/text v0.18.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240903143218-8af14fe29dc1 // indirect
-	google.golang.org/grpc v1.66.2 // indirect
-	google.golang.org/protobuf v1.34.2 // indirect
+	google.golang.org/grpc v1.67.1 // indirect
+	google.golang.org/protobuf v1.35.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 

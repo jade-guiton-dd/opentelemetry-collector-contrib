@@ -23,7 +23,7 @@ require (
 	go.uber.org/goleak v1.3.0
 	go.uber.org/multierr v1.11.0
 	google.golang.org/grpc v1.67.1
-	google.golang.org/protobuf v1.34.2
+	google.golang.org/protobuf v1.35.1
 	skywalking.apache.org/repo/goapi v0.0.0-20240104145220-ba7202308dd4
 )
 
@@ -39,7 +39,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/go-version v1.7.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/klauspost/compress v1.17.9 // indirect
+	github.com/klauspost/compress v1.17.10 // indirect
 	github.com/knadh/koanf/maps v0.1.1 // indirect
 	github.com/knadh/koanf/providers/confmap v0.1.0 // indirect
 	github.com/knadh/koanf/v2 v2.1.1 // indirect
@@ -51,7 +51,6 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rs/cors v1.11.1 // indirect
 	go.opentelemetry.io/collector/client v1.17.1-0.20241008152029-ab02c33b13bd // indirect
-	go.opentelemetry.io/collector/component/componentprofiles v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/config/configauth v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/config/configcompression v1.17.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/config/configopaque v1.17.1-0.20241008152029-ab02c33b13bd // indirect

@@ -55,7 +55,6 @@ require (
 	github.com/tidwall/tinylru v1.1.0 // indirect
 	github.com/tidwall/wal v1.1.7 // indirect
 	go.opencensus.io v0.24.0 // indirect
-	go.opentelemetry.io/collector/component/componentprofiles v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/config/configretry v1.17.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/config/configtelemetry v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/consumer v0.111.1-0.20241008152029-ab02c33b13bd // indirect
@@ -91,8 +90,8 @@ require (
 	google.golang.org/genproto v0.0.0-20240708141625-4ad9e859172b // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20240822170219-fc7c04adadcd // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240822170219-fc7c04adadcd // indirect
-	google.golang.org/grpc v1.66.2 // indirect
-	google.golang.org/protobuf v1.34.2 // indirect
+	google.golang.org/grpc v1.67.1 // indirect
+	google.golang.org/protobuf v1.35.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 

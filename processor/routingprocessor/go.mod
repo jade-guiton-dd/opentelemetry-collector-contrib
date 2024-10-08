@@ -61,7 +61,6 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/internal/coreinternal v0.110.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/ua-parser/uap-go v0.0.0-20240611065828-3a4781585db6 // indirect
-	go.opentelemetry.io/collector/component/componentprofiles v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/component/componentstatus v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/config/configauth v0.111.1-0.20241008152029-ab02c33b13bd // indirect
 	go.opentelemetry.io/collector/config/configcompression v1.17.1-0.20241008152029-ab02c33b13bd // indirect
@@ -89,7 +88,7 @@ require (
 	golang.org/x/sys v0.25.0 // indirect
 	golang.org/x/text v0.18.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240903143218-8af14fe29dc1 // indirect
-	google.golang.org/protobuf v1.34.2 // indirect
+	google.golang.org/protobuf v1.35.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
