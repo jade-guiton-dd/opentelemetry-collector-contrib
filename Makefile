@@ -15,6 +15,7 @@ MOD_NAME=github.com/open-telemetry/opentelemetry-collector-contrib
 
 GROUP ?= all
 FOR_GROUP_TARGET=for-$(GROUP)-target
+FOR_GROUP_CMD=for-$(GROUP)-cmd
 
 FIND_MOD_ARGS=-type f -name "go.mod"
 TO_MOD_DIR=dirname {} \; | sort | grep -E '^./'
@@ -196,81 +197,30 @@ push-tags: $(MULTIMOD)
 # Define a delegation target for each module
 .PHONY: $(ALL_MODS)
 $(ALL_MODS):
-	@echo "Running target '$(TARGET)' in module '$@' as part of group '$(GROUP)'"
-	$(MAKE) --no-print-directory -C $@ $(TARGET)
+	@echo "Running command '$(CMD)' in module '$@' as part of group '$(GROUP)'"
+	@(cd $@ && $(CMD));
 
-# Trigger each module's delegation target
-.PHONY: for-all-target
-for-all-target: $(ALL_MODS)
+GROUPS := all receiver receiver-0 receiver-1 receiver-2 receiver-3 \
+	processor processor-0 processor-1 \
+	exporter exporter-0 exporter-1 exporter-2 exporter-3 \
+	extension connector internal pkg \
+	cmd cmd-0 cmd-1 \
+	other integration cgo
 
-.PHONY: for-receiver-target
-for-receiver-target: $(RECEIVER_MODS)
+uppercase = $(shell echo $(GROUP) | tr a-z A-Z)
+group-var = $(if $(findstring -,$(GROUP)),$(subst -,_MODS_,$(uppercase)),$(uppercase)_MODS)
+define def-group
+.PHONY: for-$(GROUP)-cmd for-$(GROUP)-target
+for-$(GROUP)-cmd: $($(group-var))
+for-$(GROUP)-target:
+	$(MAKE) for-$(GROUP)-cmd CMD="$(MAKE) --no-print-directory $(TARGET)"
+endef
+$(foreach GROUP,$(GROUPS),$(eval $(def-group)))
 
-.PHONY: for-receiver-0-target
-for-receiver-0-target: $(RECEIVER_MODS_0)
-
-.PHONY: for-receiver-1-target
-for-receiver-1-target: $(RECEIVER_MODS_1)
-
-.PHONY: for-receiver-2-target
-for-receiver-2-target: $(RECEIVER_MODS_2)
-
-.PHONY: for-receiver-3-target
-for-receiver-3-target: $(RECEIVER_MODS_3)
-
-.PHONY: for-processor-target
-for-processor-target: $(PROCESSOR_MODS)
-
-.PHONY: for-processor-0-target
-for-processor-0-target: $(PROCESSOR_MODS_0)
-
-.PHONY: for-processor-1-target
-for-processor-1-target: $(PROCESSOR_MODS_1)
-
-.PHONY: for-exporter-target
-for-exporter-target: $(EXPORTER_MODS)
-
-.PHONY: for-exporter-0-target
-for-exporter-0-target: $(EXPORTER_MODS_0)
-
-.PHONY: for-exporter-1-target
-for-exporter-1-target: $(EXPORTER_MODS_1)
-
-.PHONY: for-exporter-2-target
-for-exporter-2-target: $(EXPORTER_MODS_2)
-
-.PHONY: for-exporter-3-target
-for-exporter-3-target: $(EXPORTER_MODS_3)
-
-.PHONY: for-extension-target
-for-extension-target: $(EXTENSION_MODS)
-
-.PHONY: for-connector-target
-for-connector-target: $(CONNECTOR_MODS)
-
-.PHONY: for-internal-target
-for-internal-target: $(INTERNAL_MODS)
-
-.PHONY: for-pkg-target
-for-pkg-target: $(PKG_MODS)
-
-.PHONY: for-cmd-target
-for-cmd-target: $(CMD_MODS)
-
-.PHONY: for-cmd-0-target
-for-cmd-0-target: $(CMD_MODS_0)
-
-.PHONY: for-cmd-1-target
-for-cmd-1-target: $(CMD_MODS_1)
-
-.PHONY: for-other-target
-for-other-target: $(OTHER_MODS)
-
-.PHONY: for-integration-target
-for-integration-target: $(INTEGRATION_MODS)
-
-.PHONY: for-cgo-target
-for-cgo-target: $(CGO_MODS)
+for-group-cmd:
+	$(MAKE) $(FOR_GROUP_CMD)
+for-group-target:
+	$(MAKE) $(FOR_GROUP_TARGET)
 
 # Debugging target, which helps to quickly determine whether for-all-target is working or not.
 .PHONY: all-pwd
