@@ -36,7 +36,7 @@ jobs:
     steps:
       - name: Fail immediately
         run: |
-          exec 2>&1 >(tee log.out)
+          exec > >(tee log.out) 2>&1
           echo "Dummy log"
           false
       - name: File an issue if the workflow failed
