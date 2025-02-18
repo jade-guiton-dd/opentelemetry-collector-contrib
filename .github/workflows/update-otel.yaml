@@ -43,10 +43,10 @@ jobs:
         if: failure()
         run: |
           template=$(cat <<'END'
-          [Link to job logs](%s)
+          [Link to job log](%s)
           
           <details>
-          <summary>Last 100 lines</summary>
+          <summary>Last 100 lines of log</summary>
 
           ```
           %s
