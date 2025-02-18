@@ -36,14 +36,25 @@ jobs:
     steps:
       - name: Fail immediately
         run: |
+          exec 2>&1 | tee log.out
           echo "Dummy log"
           exit 1
       - name: File an issue if the workflow failed
         if: failure()
         run: |
           run_url="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json url)"
-          run_log="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --log-failed | cut -f3- | cut -b30- | tail -n100)"
-          issue_body=$(printf "[Link to run logs](%s)\n\n<details><summary>Last 100 lines</summary>\n```\n%s\n```\n</details>" "$run_url" "$run_log")
-          gh issue create -R ${{ github.repository }} -t 'update-otel workflow failed' -b "$issue_body"
+          run_log="$(tail -n100 log.out)"
+          template=<< 'END'
+          [Link to run logs](%s)
+          
+          <details>
+          <summary>Last 100 lines</summary>
+          ```
+          %s
+          ```
+          </details>
+          END
+          body="$(printf "$template" "$run_url" "$run_log")"
+          gh issue create -R ${{ github.repository }} -t 'update-otel workflow failed' -b "$body"
         env:
           GH_TOKEN: ${{ github.token }}
