@@ -44,7 +44,7 @@ jobs:
         run: |
           run_url="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json url)"
           run_log="$(tail -n100 log.out)"
-          template=<< 'END'
+          template=$(cat <<'END'
           [Link to run logs](%s)
           
           <details>
@@ -54,6 +54,7 @@ jobs:
           ```
           </details>
           END
+          )
           echo "Template:"
           echo "$template"
           body="$(printf "$template" "$run_url" "$run_log")"
