@@ -37,6 +37,8 @@ jobs:
       - name: Fail immediately
         run: |
           exec > >(tee log.out) 2>&1
+          mkdir test
+          cd test
           echo "Dummy log"
           false
       - name: File an issue if the workflow failed
