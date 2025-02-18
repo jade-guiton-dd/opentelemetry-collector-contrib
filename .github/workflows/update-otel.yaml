@@ -43,5 +43,5 @@ jobs:
         run: |
           run_url="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json url"
           run_log="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --log-failed | cut -f3- | cut -b30- | tail -n100)"
-          issue_body=$(printf "[Link to run logs](%s)\n\n<details><summary>Last 100 lines</summary>\n```\n%s\n```\n</details>")
+          issue_body=$(printf "[Link to run logs](%s)\n\n<details><summary>Last 100 lines</summary>\n```\n%s\n```\n</details>" "$run_url" "$run_log")
           gh issue create -R ${{ github.repository }} -t 'update-otel workflow failed' -b "$issue_body"
