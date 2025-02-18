@@ -42,10 +42,8 @@ jobs:
       - name: File an issue if the workflow failed
         if: failure()
         run: |
-          run_url="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json url -q .url)"
-          run_log="$(tail -n100 log.out)"
           template=$(cat <<'END'
-          [Link to run logs](%s)
+          [Link to job logs](%s)
           
           <details>
           <summary>Last 100 lines</summary>
@@ -56,11 +54,8 @@ jobs:
           </details>
           END
           )
-          echo "Template:"
-          echo "$template"
-          body="$(printf "$template" "$run_url" "$run_log")"
-          echo "Body:"
-          echo "$body"
+          job_url="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json jobs -j '.jobs[] | select(.name == "test-failure") | .url')"
+          body="$(printf "$template" "$job_url" "$(tail -n100 log.out)")"
           gh issue create -R ${{ github.repository }} -t 'update-otel workflow failed' -b "$body"
         env:
           GH_TOKEN: ${{ github.token }}
