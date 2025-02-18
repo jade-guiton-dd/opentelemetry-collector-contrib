@@ -42,7 +42,7 @@ jobs:
       - name: File an issue if the workflow failed
         if: failure()
         run: |
-          run_url="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json url -j)"
+          run_url="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json url -q .url)"
           run_log="$(tail -n100 log.out)"
           template=$(cat <<'END'
           [Link to run logs](%s)
