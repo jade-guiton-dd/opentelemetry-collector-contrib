@@ -54,7 +54,11 @@ jobs:
           ```
           </details>
           END
+          echo "Template:"
+          echo "$template"
           body="$(printf "$template" "$run_url" "$run_log")"
+          echo "Body:"
+          echo "$body"
           gh issue create -R ${{ github.repository }} -t 'update-otel workflow failed' -b "$body"
         env:
           GH_TOKEN: ${{ github.token }}
