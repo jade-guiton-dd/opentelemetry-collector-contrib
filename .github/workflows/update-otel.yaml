@@ -30,3 +30,12 @@ jobs:
           gh pr create --base main --title "[chore] Update core dependencies" --body "This PR updates the opentelemetry-collector dependency to the latest release"
         env:
           GITHUB_TOKEN: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+  
+  file-issue:
+    runs-on: ubuntu-24.04
+    if: failure()
+    steps:
+      - name: File an issue if the workflow fails
+        run: |
+          job_url="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json jobs -j '.jobs[] | select(.name == "update-otel") | .url')"
+          gh issue create -R ${{ github.repository }} -t 'update-otel workflow failed' -b "[Job logs]($job_url)"
