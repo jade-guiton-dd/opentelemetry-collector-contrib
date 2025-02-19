@@ -60,7 +60,7 @@ jobs:
           exec > >(tee log.out) 2>&1
           for i in {1..200}
           do
-            echo "$(printf 'A%.0s' {1..2000})"
+            echo "$(printf 'A%.0s' {1..100})"
           done
           false
       - name: File an issue if the workflow failed
