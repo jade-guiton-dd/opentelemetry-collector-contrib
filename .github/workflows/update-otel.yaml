@@ -51,3 +51,35 @@ jobs:
           gh issue create -R ${{ github.repository }} -t 'update-otel workflow failed' -b "$body" -l 'ci-cd'
         env:
           GH_TOKEN: ${{ github.token }}
+  
+  failure-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Scream a bunch and fail immediately
+        run: |
+          exec > >(tee log.out) 2>&1
+          for i in {1..200}
+          do
+            echo "$(printf 'A%.0s' {1..1400})"
+          done
+      - name: File an issue if the workflow failed
+        if: failure()
+        run: |
+          template=$(cat <<'END'
+          [Link to job log](%s)
+          
+          <details>
+          <summary>Last 100 lines of log</summary>
+
+          ```
+          %s
+          ```
+          </details>
+          END
+          )
+          job_url="$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json jobs -q '.jobs[] | select(.name == "failure-test") | .url')"
+          body="$(printf "$template" "$job_url" "$(tail -n100 log.out)")"
+          gh issue create -R ${{ github.repository }} -t 'update-otel workflow failed' -b "$body" -l 'ci-cd'
+        env:
+          GH_TOKEN: ${{ github.token }}
+
