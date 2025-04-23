@@ -10,10 +10,12 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"sync"
 	"time"
 
 	"github.com/DataDog/datadog-agent/pkg/trace/config"
+	"github.com/DataDog/datadog-api-client-go/v2/api/datadog"
 	"github.com/DataDog/datadog-api-client-go/v2/api/datadogV2"
 	"github.com/DataDog/opentelemetry-mapping-go/pkg/inframetadata"
 	"github.com/DataDog/opentelemetry-mapping-go/pkg/otlp/attributes"
@@ -210,8 +212,7 @@ func (exp *metricsExporter) PushMetricsData(ctx context.Context, md pmetric.Metr
 		if len(ms) > 0 {
 			exp.params.Logger.Debug("exporting native Datadog payload", zap.Any("metric", ms))
 			_, experr := exp.retrier.DoWithRetries(ctx, func(context.Context) error {
-				ctx = clientutil.GetRequestContext(ctx, string(exp.cfg.API.Key))
-				_, httpresp, merr := exp.metricsAPI.SubmitMetrics(ctx, datadogV2.MetricPayload{Series: ms}, *clientutil.GZipSubmitMetricsOptionalParameters)
+				httpresp, merr := submitSeries(ctx, exp.metricsAPI.Client, string(exp.cfg.API.Key), ms)
 				return clientutil.WrapError(merr, httpresp)
 			})
 			errs = append(errs, experr)
@@ -237,4 +238,38 @@ func (exp *metricsExporter) PushMetricsData(ctx context.Context, md pmetric.Metr
 	}
 
 	return errors.Join(errs...)
+}
+
+func submitSeries(ctx context.Context, client *datadog.APIClient, apiKey string, ms []datadogV2.MetricSeries) (*http.Response, error) {
+	path := "https://api.datad0g.com/api/intake/pipelines/ddseries" // <===
+
+	headers := map[string]string{
+		"Content-Type":     "application/json",
+		"Accept":           "application/json",
+		"Content-Encoding": "gzip",
+		"DD-API-KEY":       apiKey,
+	}
+	body := datadogV2.MetricPayload{Series: ms}
+
+	req, err := client.PrepareRequest(ctx, path, http.MethodPost, &body, headers, url.Values{}, url.Values{}, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := client.CallAPI(req)
+	if err != nil || resp == nil {
+		return resp, err
+	}
+	respBody, err := datadog.ReadBody(resp)
+	if err != nil {
+		return resp, err
+	}
+	if resp.StatusCode >= 300 {
+		newErr := datadog.GenericOpenAPIError{
+			ErrorBody:    respBody,
+			ErrorMessage: resp.Status,
+		}
+		return resp, newErr
+	}
+	return resp, nil
 }
