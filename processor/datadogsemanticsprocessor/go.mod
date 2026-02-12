@@ -3,9 +3,9 @@ module github.com/open-telemetry/opentelemetry-collector-contrib/processor/datad
 go 1.25.0
 
 require (
-	github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/attributes v0.76.0-rc.4
-	github.com/DataDog/datadog-agent/pkg/trace v0.76.0-rc.4
-	github.com/DataDog/datadog-agent/pkg/trace/otel v0.76.0-rc.4
+	github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/attributes v0.77.0-devel.0.20260212105712-c067ee50e7f8
+	github.com/DataDog/datadog-agent/pkg/trace v0.77.0-devel.0.20260212105712-c067ee50e7f8
+	github.com/DataDog/datadog-agent/pkg/trace/otel v0.77.0-devel.0.20260212105712-c067ee50e7f8
 	github.com/stretchr/testify v1.11.1
 	go.opentelemetry.io/collector/component v1.51.1-0.20260212054546-f0da990367b6
 	go.opentelemetry.io/collector/component/componentstatus v0.145.1-0.20260212054546-f0da990367b6
@@ -32,7 +32,7 @@ require (
 	github.com/DataDog/datadog-agent/pkg/util/log v0.76.0-rc.4 // indirect
 	github.com/DataDog/datadog-agent/pkg/util/scrubber v0.76.0-rc.4 // indirect
 	github.com/DataDog/datadog-agent/pkg/version v0.76.0-rc.4 // indirect
-	github.com/DataDog/datadog-go/v5 v5.8.2 // indirect
+	github.com/DataDog/datadog-go/v5 v5.8.3 // indirect
 	github.com/DataDog/go-sqllexer v0.1.12 // indirect
 	github.com/DataDog/go-tuf v1.1.1-0.5.2 // indirect
 	github.com/DataDog/sketches-go v1.4.7 // indirect
@@ -65,7 +65,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect
 	github.com/secure-systems-lab/go-securesystemslib v0.9.0 // indirect
-	github.com/shirou/gopsutil/v4 v4.25.12 // indirect
+	github.com/shirou/gopsutil/v4 v4.26.1 // indirect
 	github.com/tinylib/msgp v1.6.3 // indirect
 	github.com/tklauser/go-sysconf v0.3.16 // indirect
 	github.com/tklauser/numcpus v0.11.0 // indirect

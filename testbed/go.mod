@@ -86,19 +86,19 @@ require (
 	github.com/Code-Hex/go-generics-cache v1.5.1 // indirect
 	github.com/DataDog/agent-payload/v5 v5.0.180 // indirect
 	github.com/DataDog/datadog-agent/comp/core/tagger/origindetection v0.76.0-rc.4 // indirect
-	github.com/DataDog/datadog-agent/pkg/obfuscate v0.76.0-rc.4 // indirect
-	github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/attributes v0.76.0-rc.4 // indirect
-	github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/metrics v0.76.0-rc.4 // indirect
-	github.com/DataDog/datadog-agent/pkg/proto v0.76.0-rc.4 // indirect
+	github.com/DataDog/datadog-agent/pkg/obfuscate v0.77.0-devel.0.20260212105712-c067ee50e7f8 // indirect
+	github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/attributes v0.77.0-devel.0.20260212105712-c067ee50e7f8 // indirect
+	github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/metrics v0.77.0-devel.0.20260212105712-c067ee50e7f8 // indirect
+	github.com/DataDog/datadog-agent/pkg/proto v0.77.0-devel.0.20260212105712-c067ee50e7f8 // indirect
 	github.com/DataDog/datadog-agent/pkg/remoteconfig/state v0.76.0-rc.4 // indirect
 	github.com/DataDog/datadog-agent/pkg/template v0.76.0-rc.4 // indirect
-	github.com/DataDog/datadog-agent/pkg/trace v0.76.0-rc.4 // indirect
+	github.com/DataDog/datadog-agent/pkg/trace v0.77.0-devel.0.20260212105712-c067ee50e7f8 // indirect
 	github.com/DataDog/datadog-agent/pkg/trace/exportable v0.0.0-20201016145401-4646cf596b02 // indirect
-	github.com/DataDog/datadog-agent/pkg/trace/log v0.76.0-rc.4 // indirect
-	github.com/DataDog/datadog-agent/pkg/trace/otel v0.77.0-devel // indirect
-	github.com/DataDog/datadog-agent/pkg/trace/stats v0.76.0-rc.4 // indirect
-	github.com/DataDog/datadog-agent/pkg/trace/traceutil v0.76.0-rc.4 // indirect
-	github.com/DataDog/datadog-agent/pkg/util/hostname/validate v0.76.0-rc.4 // indirect
+	github.com/DataDog/datadog-agent/pkg/trace/log v0.77.0-devel.0.20260212105712-c067ee50e7f8 // indirect
+	github.com/DataDog/datadog-agent/pkg/trace/otel v0.77.0-devel.0.20260212105712-c067ee50e7f8 // indirect
+	github.com/DataDog/datadog-agent/pkg/trace/stats v0.77.0-devel.0.20260212105712-c067ee50e7f8 // indirect
+	github.com/DataDog/datadog-agent/pkg/trace/traceutil v0.77.0-devel.0.20260212105712-c067ee50e7f8 // indirect
+	github.com/DataDog/datadog-agent/pkg/util/hostname/validate v0.77.0-devel.0.20260212105712-c067ee50e7f8 // indirect
 	github.com/DataDog/datadog-agent/pkg/util/log v0.76.0-rc.4 // indirect
 	github.com/DataDog/datadog-agent/pkg/util/quantile v0.76.0-rc.4 // indirect
 	github.com/DataDog/datadog-agent/pkg/util/scrubber v0.76.0-rc.4 // indirect
