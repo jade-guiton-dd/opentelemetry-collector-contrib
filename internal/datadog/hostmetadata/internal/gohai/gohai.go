@@ -6,18 +6,18 @@
 package gohai // import "github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/hostmetadata/internal/gohai"
 
 import (
+	"github.com/DataDog/datadog-agent/pkg/gohai/cpu"
+	"github.com/DataDog/datadog-agent/pkg/gohai/filesystem"
+	"github.com/DataDog/datadog-agent/pkg/gohai/memory"
+	"github.com/DataDog/datadog-agent/pkg/gohai/network"
+	"github.com/DataDog/datadog-agent/pkg/gohai/platform"
 	"github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/inframetadata/gohai"
-	"github.com/DataDog/gohai/cpu"
-	"github.com/DataDog/gohai/filesystem"
-	"github.com/DataDog/gohai/memory"
-	"github.com/DataDog/gohai/network"
-	"github.com/DataDog/gohai/platform"
 	"go.uber.org/zap"
 )
 
 // NewPayload builds a payload of every metadata collected with gohai except processes metadata.
 // Parts of this are based on datadog-agent code
-// https://github.com/DataDog/datadog-agent/blob/94a28d9cee3f1c886b3866e8208be5b2a8c2c217/pkg/metadata/internal/gohai/gohai.go#L27-L32
+// https://github.com/DataDog/datadog-agent/blob/a09732f39f1936113f0fee6c451b29d7b167d1ce/pkg/gohai/gohai.go#L56
 func NewPayload(logger *zap.Logger) gohai.Payload {
 	payload := gohai.NewEmpty()
 	payload.Gohai.Gohai = newGohai(logger)
@@ -27,44 +27,63 @@ func NewPayload(logger *zap.Logger) gohai.Payload {
 func newGohai(logger *zap.Logger) *gohai.Gohai {
 	res := new(gohai.Gohai)
 
-	if p, err := new(cpu.Cpu).Collect(); err != nil {
-		logger.Debug("Failed to retrieve cpu metadata", zap.Error(err))
+	if p, warns, err := cpu.CollectInfo().AsJSON(); err != nil {
+		logger.Debug("Failed to retrieve cpu metadata", zap.Error(err), zap.Strings("warns", warns))
 	} else if cpu, ok := p.(map[string]string); !ok {
 		logger.Warn("Internal error: Failed to cast cpu metadata to map[string]string", zap.Any("cpu", p))
 	} else {
+		if len(warns) > 0 {
+			logger.Debug("Retrieving CPU metadata yielded warnings", zap.Strings("warns", warns))
+		}
 		res.CPU = cpu
 	}
 
-	if p, err := new(filesystem.FileSystem).Collect(); err != nil {
+	if info, err := filesystem.CollectInfo(); err != nil {
 		logger.Debug("Failed to retrieve filesystem metadata", zap.Error(err))
+	} else if p, warns, err := info.AsJSON(); err != nil {
+		logger.Warn("Failed to convert filesystem metadata to JSON", zap.Error(err), zap.Strings("warns", warns))
 	} else if fs, ok := p.([]any); !ok {
 		logger.Warn("Internal error: Failed to cast filesystem metadata to []any", zap.Any("filesystem", p))
 	} else {
+		if len(warns) > 0 {
+			logger.Debug("Converting filesystem metadata to JSON yielded warnings", zap.Strings("warns", warns))
+		}
 		res.FileSystem = fs
 	}
 
-	if p, err := new(memory.Memory).Collect(); err != nil {
+	if p, warns, err := memory.CollectInfo().AsJSON(); err != nil {
 		logger.Debug("Failed to retrieve memory metadata", zap.Error(err))
 	} else if mem, ok := p.(map[string]string); !ok {
 		logger.Warn("Internal error: Failed to cast memory metadata to map[string]string", zap.Any("memory", p))
 	} else {
+		if len(warns) > 0 {
+			logger.Debug("Retrieving memory metadata yielded warnings", zap.Strings("warns", warns))
+		}
 		res.Memory = mem
 	}
 
 	// in case of containerized environment, this would return pod id not node's ip
-	if p, err := new(network.Network).Collect(); err != nil {
+	if info, err := network.CollectInfo(); err != nil {
 		logger.Debug("Failed to retrieve network metadata", zap.Error(err))
+	} else if p, warns, err := info.AsJSON(); err != nil {
+		logger.Warn("Failed to convert network metadata to JSON", zap.Error(err), zap.Strings("warnigns", warns))
 	} else if net, ok := p.(map[string]any); !ok {
 		logger.Warn("Internal error: Failed to cast network metadata to map[string]any", zap.Any("network", p))
 	} else {
+		if len(warns) > 0 {
+			logger.Debug("Converting memory metadata to JSON yielded warnings", zap.Strings("warns", warns))
+		}
 		res.Network = net
 	}
 
-	if p, err := new(platform.Platform).Collect(); err != nil {
-		logger.Debug("Failed to retrieve platform metadata", zap.Error(err))
+	if p, warns, err := platform.CollectInfo().AsJSON(); err != nil {
+		logger.Debug("Failed to retrieve platform metadata", zap.Error(err), zap.Strings("warns", warns))
 	} else if platform, ok := p.(map[string]string); !ok {
 		logger.Warn("Internal error: Failed to cast platform metadata to map[string]string", zap.Any("platform", p))
 	} else {
+		if len(warns) > 0 {
+			logger.Debug("Retrieving platform metadata yielded warnings", zap.Strings("warns", warns))
+		}
 		res.Platform = platform
 	}
 
