@@ -24,18 +24,28 @@ func NewPayload(logger *zap.Logger) gohai.Payload {
 	return payload
 }
 
+func convertMapOfStrings(m map[string]any) map[string]string {
+	m2 := make(map[string]string, len(m))
+	for k, v := range m {
+		if s, ok := v.(string); ok {
+			m2[k] = s
+		}
+	}
+	return m2
+}
+
 func newGohai(logger *zap.Logger) *gohai.Gohai {
 	res := new(gohai.Gohai)
 
 	if p, warns, err := cpu.CollectInfo().AsJSON(); err != nil {
 		logger.Debug("Failed to retrieve cpu metadata", zap.Error(err), zap.Strings("warns", warns))
-	} else if cpu, ok := p.(map[string]string); !ok {
-		logger.Warn("Internal error: Failed to cast cpu metadata to map[string]string", zap.Any("cpu", p))
+	} else if cpu, ok := p.(map[string]any); !ok {
+		logger.Warn("Internal error: Failed to cast cpu metadata to map[string]any", zap.Any("cpu", p))
 	} else {
 		if len(warns) > 0 {
 			logger.Debug("Retrieving CPU metadata yielded warnings", zap.Strings("warns", warns))
 		}
-		res.CPU = cpu
+		res.CPU = convertMapOfStrings(cpu)
 	}
 
 	if info, err := filesystem.CollectInfo(); err != nil {
@@ -53,13 +63,13 @@ func newGohai(logger *zap.Logger) *gohai.Gohai {
 
 	if p, warns, err := memory.CollectInfo().AsJSON(); err != nil {
 		logger.Debug("Failed to retrieve memory metadata", zap.Error(err))
-	} else if mem, ok := p.(map[string]string); !ok {
-		logger.Warn("Internal error: Failed to cast memory metadata to map[string]string", zap.Any("memory", p))
+	} else if mem, ok := p.(map[string]any); !ok {
+		logger.Warn("Internal error: Failed to cast memory metadata to map[string]any", zap.Any("memory", p))
 	} else {
 		if len(warns) > 0 {
 			logger.Debug("Retrieving memory metadata yielded warnings", zap.Strings("warns", warns))
 		}
-		res.Memory = mem
+		res.Memory = convertMapOfStrings(mem)
 	}
 
 	// in case of containerized environment, this would return pod id not node's ip
@@ -78,13 +88,13 @@ func newGohai(logger *zap.Logger) *gohai.Gohai {
 
 	if p, warns, err := platform.CollectInfo().AsJSON(); err != nil {
 		logger.Debug("Failed to retrieve platform metadata", zap.Error(err), zap.Strings("warns", warns))
-	} else if platform, ok := p.(map[string]string); !ok {
-		logger.Warn("Internal error: Failed to cast platform metadata to map[string]string", zap.Any("platform", p))
+	} else if platform, ok := p.(map[string]any); !ok {
+		logger.Warn("Internal error: Failed to cast platform metadata to map[string]any", zap.Any("platform", p))
 	} else {
 		if len(warns) > 0 {
 			logger.Debug("Retrieving platform metadata yielded warnings", zap.Strings("warns", warns))
 		}
-		res.Platform = platform
+		res.Platform = convertMapOfStrings(platform)
 	}
 
 	return res

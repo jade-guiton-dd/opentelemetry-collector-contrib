@@ -14,11 +14,11 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"go.uber.org/zap"
+	"go.uber.org/zap/zaptest"
 )
 
 func TestGetPayload(t *testing.T) {
-	logger := zap.NewNop()
+	logger := zaptest.NewLogger(t)
 	gohai := NewPayload(logger)
 	assert.NotNil(t, gohai.Gohai.Gohai.CPU)
 	assert.NotPanics(t, func() { gohai.CPU() })
