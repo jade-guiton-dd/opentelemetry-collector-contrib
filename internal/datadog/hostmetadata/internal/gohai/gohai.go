@@ -24,16 +24,6 @@ func NewPayload(logger *zap.Logger) gohai.Payload {
 	return payload
 }
 
-func convertMapOfStrings(m map[string]any) map[string]string {
-	m2 := make(map[string]string, len(m))
-	for k, v := range m {
-		if s, ok := v.(string); ok {
-			m2[k] = s
-		}
-	}
-	return m2
-}
-
 func newGohai(logger *zap.Logger) *gohai.Gohai {
 	res := new(gohai.Gohai)
 
@@ -45,7 +35,7 @@ func newGohai(logger *zap.Logger) *gohai.Gohai {
 		if len(warns) > 0 {
 			logger.Debug("Retrieving CPU metadata yielded warnings", zap.Strings("warns", warns))
 		}
-		res.CPU = convertMapOfStrings(cpu)
+		res.CPU = cpu
 	}
 
 	if info, err := filesystem.CollectInfo(); err != nil {
@@ -69,7 +59,7 @@ func newGohai(logger *zap.Logger) *gohai.Gohai {
 		if len(warns) > 0 {
 			logger.Debug("Retrieving memory metadata yielded warnings", zap.Strings("warns", warns))
 		}
-		res.Memory = convertMapOfStrings(mem)
+		res.Memory = mem
 	}
 
 	// in case of containerized environment, this would return pod id not node's ip
@@ -94,7 +84,7 @@ func newGohai(logger *zap.Logger) *gohai.Gohai {
 		if len(warns) > 0 {
 			logger.Debug("Retrieving platform metadata yielded warnings", zap.Strings("warns", warns))
 		}
-		res.Platform = convertMapOfStrings(platform)
+		res.Platform = platform
 	}
 
 	return res
