@@ -161,8 +161,8 @@ github.com/DataDog/datadog-agent/pkg/metrics v0.77.0-devel.0.20260213154712-e02b
 github.com/DataDog/datadog-agent/pkg/metrics v0.77.0-devel.0.20260213154712-e02b9359151a/go.mod h1:yiZDDt53gNA3cnCmdCrUDIyY30XO0x20UaW4oG347+I=
 github.com/DataDog/datadog-agent/pkg/obfuscate v0.77.0-devel.0.20260213154712-e02b9359151a h1:/xtQjxLk5vwsBsiBAnoz8qTdntvp6DX41AteNrbns5Y=
 github.com/DataDog/datadog-agent/pkg/obfuscate v0.77.0-devel.0.20260213154712-e02b9359151a/go.mod h1:TcvPatbygfZy2wH7n259LZuYUz3TIe3o/Dv53Su7uqM=
-github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/inframetadata v0.77.0-devel.0.20260213154712-e02b9359151a h1:CCZZ6s697f3SY9Xg9LQY7cTCscEAjXbL5XABW8Dk514=
-github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/inframetadata v0.77.0-devel.0.20260213154712-e02b9359151a/go.mod h1:D9KDLZoMf7FglLelOJsfBl2fYTBphGDGpyHeWoMVRAs=
+github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/inframetadata v0.77.0-devel.0.20260216171143-6b52d2a7597c h1:lcn7V4+Zydgt0XhR6zMoVQcg7Y8vJmXME2HYk5hpW0g=
+github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/inframetadata v0.77.0-devel.0.20260216171143-6b52d2a7597c/go.mod h1:D9KDLZoMf7FglLelOJsfBl2fYTBphGDGpyHeWoMVRAs=
 github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/attributes v0.77.0-devel.0.20260213154712-e02b9359151a h1:fuUVM3/dSlrRksAedtAp9h79z+EvGcugspntcgoX9/4=
 github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/attributes v0.77.0-devel.0.20260213154712-e02b9359151a/go.mod h1:v6DcH9reFdy27+lZHfKW4Bo7ynPcmZaxALE36b2PqDc=
 github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs v0.77.0-devel.0.20260213154712-e02b9359151a h1:sFfu3NSrYQYJAdNAytadvfH9sv9Qh3KKkQLA6t94NW8=
