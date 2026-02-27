@@ -56,9 +56,10 @@ type opampAgent struct {
 	cfg    *Config
 	logger *zap.Logger
 
-	agentType     string
-	agentVersion  string
-	resourceAttrs map[string]string
+	agentType       string
+	agentVersion    string
+	agentInstanceID string
+	resourceAttrs   map[string]string
 
 	instanceID uuid.UUID
 
@@ -301,20 +302,23 @@ func newOpampAgent(cfg *Config, set extension.Settings) (*opampAgent, error) {
 		return nil, fmt.Errorf("could not generate uuidv7: %w", err)
 	}
 
+	var agentInstanceID string
+	if sid, ok := set.Resource.Attributes().Get(string(conventions.ServiceInstanceIDKey)); ok {
+		agentInstanceID = sid.Str()
+	}
+
 	if cfg.InstanceUID != "" {
 		uid, err = parseInstanceIDString(cfg.InstanceUID)
 		if err != nil {
 			return nil, fmt.Errorf("could not parse configured instance id: %w", err)
 		}
 	} else {
-		sid, ok := set.Resource.Attributes().Get(string(conventions.ServiceInstanceIDKey))
-		if ok {
-			uid, err = uuid.Parse(sid.AsString())
-			if err != nil {
-				return nil, err
-			}
+		uid, err = uuid.Parse(agentInstanceID)
+		if err != nil {
+			return nil, err
 		}
 	}
+
 	resourceAttrs := make(map[string]string, set.Resource.Attributes().Len())
 	set.Resource.Attributes().Range(func(k string, v pcommon.Value) bool {
 		resourceAttrs[k] = v.Str()
@@ -327,6 +331,7 @@ func newOpampAgent(cfg *Config, set extension.Settings) (*opampAgent, error) {
 		logger:                   set.Logger,
 		agentType:                agentType,
 		agentVersion:             agentVersion,
+		agentInstanceID:          agentInstanceID,
 		instanceID:               uid,
 		capabilities:             cfg.Capabilities,
 		opampClient:              opampClient,
@@ -377,7 +382,7 @@ func (o *opampAgent) createAgentDescription() error {
 	description := getOSDescription(o.logger)
 
 	ident := []*protobufs.KeyValue{
-		stringKeyValue(string(conventions.ServiceInstanceIDKey), o.instanceID.String()),
+		stringKeyValue(string(conventions.ServiceInstanceIDKey), o.agentInstanceID),
 		stringKeyValue(string(conventions.ServiceNameKey), o.agentType),
 		stringKeyValue(string(conventions.ServiceVersionKey), o.agentVersion),
 	}
