@@ -297,14 +297,15 @@ func newOpampAgent(cfg *Config, set extension.Settings) (*opampAgent, error) {
 		agentVersion = sv.AsString()
 	}
 
+	agentInstanceID := ""
+
+	if sid, ok := set.Resource.Attributes().Get(string(conventions.ServiceInstanceIDKey)); ok {
+		agentInstanceID = sid.Str()
+	}
+
 	uid, err := uuid.NewV7()
 	if err != nil {
 		return nil, fmt.Errorf("could not generate uuidv7: %w", err)
-	}
-
-	var agentInstanceID string
-	if sid, ok := set.Resource.Attributes().Get(string(conventions.ServiceInstanceIDKey)); ok {
-		agentInstanceID = sid.Str()
 	}
 
 	if cfg.InstanceUID != "" {
@@ -312,7 +313,7 @@ func newOpampAgent(cfg *Config, set extension.Settings) (*opampAgent, error) {
 		if err != nil {
 			return nil, fmt.Errorf("could not parse configured instance id: %w", err)
 		}
-	} else {
+	} else if agentInstanceID != "" {
 		uid, err = uuid.Parse(agentInstanceID)
 		if err != nil {
 			return nil, err
