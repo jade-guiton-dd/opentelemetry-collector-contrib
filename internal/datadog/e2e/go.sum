@@ -131,8 +131,6 @@ github.com/DataDog/datadog-agent/pkg/config/viperconfig v0.77.0-devel.0.20260213
 github.com/DataDog/datadog-agent/pkg/config/viperconfig v0.77.0-devel.0.20260213154712-e02b9359151a/go.mod h1:2qN+AJQQ8Vup7DsAshQ+L/MgsvQlGhbVfs/bRtrEreM=
 github.com/DataDog/datadog-agent/pkg/fips v0.77.0-devel.0.20260213154712-e02b9359151a h1:Yt2vjx6PFdcgdVJMtrAp+hhV1AXxkNUK18VBriA8P3s=
 github.com/DataDog/datadog-agent/pkg/fips v0.77.0-devel.0.20260213154712-e02b9359151a/go.mod h1:S747tum3JbhZVkFmfeu47Q8S4xwL5CQnoIcGfYySL7g=
-github.com/DataDog/datadog-agent/pkg/gohai v0.77.0-devel.0.20260213154712-e02b9359151a h1:w2x/8db3PQMQc+ZhgcQoVrHDrw2o1aGjvzY5Y+LeV8g=
-github.com/DataDog/datadog-agent/pkg/gohai v0.77.0-devel.0.20260213154712-e02b9359151a/go.mod h1:FTVo1ngX79uEbdrt6XMAK9wzV2EDiXdTsTKaENzF5m4=
 github.com/DataDog/datadog-agent/pkg/logs/client v0.77.0-devel.0.20260213154712-e02b9359151a h1:2t+6yP959Ur6EPPOYJrYTeVs8SzTJzFV432LVD0jUjQ=
 github.com/DataDog/datadog-agent/pkg/logs/client v0.77.0-devel.0.20260213154712-e02b9359151a/go.mod h1:bFvUlqxCrGk1fsNf8cZ/ZsgM3TdkyxQprKq7OpUuxRw=
 github.com/DataDog/datadog-agent/pkg/logs/diagnostic v0.77.0-devel.0.20260213154712-e02b9359151a h1:4Zm3XwXbsuE9XsOG1fKug29htjBT9KsWUGiJJ+M3h8I=
@@ -881,6 +879,7 @@ github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529 h1:nn5Wsu0esKSJiIVhscUt
 github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529/go.mod h1:DxrIzT+xaE7yg65j358z/aeFdxmN0P9QXhEzd20vsDc=
 github.com/secure-systems-lab/go-securesystemslib v0.9.0 h1:rf1HIbL64nUpEIZnjLZ3mcNEL9NBPB0iuVjyxvq3LZc=
 github.com/secure-systems-lab/go-securesystemslib v0.9.0/go.mod h1:DVHKMcZ+V4/woA/peqr+L0joiRXbPpQ042GgJckkFgw=
+github.com/shirou/gopsutil/v3 v3.22.12 h1:oG0ns6poeUSxf78JtOsfygNWuEHYYz8hnnNg7P04TJs=
 github.com/shirou/gopsutil/v3 v3.22.12/go.mod h1:Xd7P1kwZcp5VW52+9XsirIKd/BROzbb2wdX3Kqlz9uI=
 github.com/shirou/gopsutil/v4 v4.26.2 h1:X8i6sicvUFih4BmYIGT1m2wwgw2VG9YgrDTi7cIRGUI=
 github.com/shirou/gopsutil/v4 v4.26.2/go.mod h1:LZ6ewCSkBqUpvSOf+LsTGnRinC6iaNUNMGBtDkJBaLQ=
