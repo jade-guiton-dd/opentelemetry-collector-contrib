@@ -1,4 +1,4 @@
-module github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/hostmetadata/gohai
+module github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/gohai
 
 go 1.25.0
 
