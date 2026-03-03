@@ -144,6 +144,7 @@ require (
 	github.com/DataDog/datadog-go/v5 v5.8.3 // indirect
 	github.com/DataDog/go-sqllexer v0.1.12 // indirect
 	github.com/DataDog/go-tuf v1.1.1-0.5.2 // indirect
+	github.com/DataDog/gohai v0.0.0-20230524154621-4316413895ee // indirect
 	github.com/DataDog/mmh3 v0.0.0-20210722141835-012dc69a9e49 // indirect
 	github.com/DataDog/sketches-go v1.4.7 // indirect
 	github.com/DataDog/viper v1.15.0 // indirect
@@ -181,6 +182,7 @@ require (
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
 	github.com/cenkalti/backoff/v5 v5.0.3 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
+	github.com/cihub/seelog v0.0.0-20170130134532-f561c5e57575 // indirect
 	github.com/cncf/xds/go v0.0.0-20251210132809-ee656c7534f5 // indirect
 	github.com/containerd/errdefs v1.0.0 // indirect
 	github.com/containerd/errdefs/pkg v0.3.0 // indirect
@@ -306,7 +308,6 @@ require (
 	github.com/mitchellh/mapstructure v1.5.1-0.20231216201459-8508981c8b6c // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	github.com/moby/docker-image-spec v1.3.1 // indirect
-	github.com/moby/sys/mountinfo v0.7.2 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.3-0.20250322232337-35a7c28c31ee // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
@@ -319,6 +320,7 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/internal/common v0.147.0 // indirect
 	github.com/open-telemetry/opentelemetry-collector-contrib/internal/coreinternal v0.147.0 // indirect
 	github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog v0.147.0 // indirect
+	github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/gohai v0.0.0-00010101000000-000000000000 // indirect
 	github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker v0.147.0 // indirect
 	github.com/open-telemetry/opentelemetry-collector-contrib/internal/exp/metrics v0.147.0 // indirect
 	github.com/open-telemetry/opentelemetry-collector-contrib/internal/filter v0.147.0 // indirect
@@ -528,6 +530,8 @@ replace github.com/open-telemetry/opentelemetry-collector-contrib/processor/delt
 replace github.com/open-telemetry/opentelemetry-collector-contrib/pkg/pdatautil => ../../../pkg/pdatautil
 
 replace github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog => ../../datadog
+
+replace github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/gohai => ../../datadog/gohai
 
 replace github.com/open-telemetry/opentelemetry-collector-contrib/receiver/filelogreceiver => ../../../receiver/filelogreceiver
 

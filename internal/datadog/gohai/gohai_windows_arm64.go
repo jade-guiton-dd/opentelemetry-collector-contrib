@@ -3,7 +3,7 @@
 
 //go:build windows && arm64
 
-package gohai // import "github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/gohai"
+package gohai // import "github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/hostmetadata/gohai"
 
 import (
 	"github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/inframetadata/gohai"
