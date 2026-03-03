@@ -8,7 +8,7 @@
 
 //go:build !(windows && arm64)
 
-package gohai
+package gohai // import "github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/gohai"
 
 import (
 	"testing"

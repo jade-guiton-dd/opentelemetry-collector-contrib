@@ -6,8 +6,10 @@ package hostmetadata // import "github.com/open-telemetry/opentelemetry-collecto
 import (
 	"time"
 
+	"github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/inframetadata/gohai"
 	"go.opentelemetry.io/collector/config/confighttp"
 	"go.opentelemetry.io/collector/config/configretry"
+	"go.uber.org/zap"
 )
 
 // PusherConfig is the configuration for the metadata pusher goroutine.
@@ -30,4 +32,11 @@ type PusherConfig struct {
 	RetrySettings configretry.BackOffConfig
 	// ReporterPeriod is the period of the reporter goroutine.
 	ReporterPeriod time.Duration
+	// GohaiProvider is the implementation of the Gohai library used to detect host metadata.
+	GohaiProvider GohaiProvider
+}
+
+type GohaiProvider interface {
+	NewPayload(logger *zap.Logger) gohai.Payload
+	NewProcessesPayload(hostname string, logger *zap.Logger) *gohai.ProcessesPayload
 }

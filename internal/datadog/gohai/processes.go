@@ -3,7 +3,7 @@
 
 //go:build linux || darwin
 
-package gohai // import "github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/hostmetadata/internal/gohai"
+package gohai // import "github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/gohai"
 
 import (
 	"github.com/DataDog/datadog-agent/pkg/gohai/processes"

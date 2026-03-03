@@ -4,6 +4,7 @@
 package datadogexporter // import "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/datadogexporter"
 
 import (
+	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/gohai"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/hostmetadata"
 	datadogconfig "github.com/open-telemetry/opentelemetry-collector-contrib/pkg/datadog/config"
 )
@@ -20,5 +21,6 @@ func newMetadataConfigfromConfig(cfg *datadogconfig.Config) hostmetadata.PusherC
 		ClientConfig:        cfg.ClientConfig,
 		RetrySettings:       cfg.BackOffConfig,
 		ReporterPeriod:      cfg.HostMetadata.ReporterPeriod,
+		GohaiProvider:       gohai.GohaiProvider,
 	}
 }

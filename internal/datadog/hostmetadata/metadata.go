@@ -27,7 +27,6 @@ import (
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/clientutil"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/hostmetadata/internal/ec2"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/hostmetadata/internal/gohai"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/hostmetadata/internal/system"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/datadog/scrub"
 )
@@ -73,8 +72,10 @@ func fillHostMetadata(params exporter.Settings, pcfg PusherConfig, p source.Prov
 	hm.Flavor = params.BuildInfo.Command
 	hm.Version = params.BuildInfo.Version
 	hm.Tags.OTel = append(hm.Tags.OTel, pcfg.ConfigTags...)
-	hm.Payload = gohai.NewPayload(params.Logger)
-	hm.Processes = gohai.NewProcessesPayload(hm.Meta.Hostname, params.Logger)
+	if pcfg.GohaiProvider != nil {
+		hm.Payload = pcfg.GohaiProvider.NewPayload(params.Logger)
+		hm.Processes = pcfg.GohaiProvider.NewProcessesPayload(hm.Meta.Hostname, params.Logger)
+	}
 	// EC2 data was not set from attributes
 	if hm.Meta.EC2Hostname == "" {
 		ec2HostInfo := ec2.GetHostInfo(context.Background(), params.Logger)
