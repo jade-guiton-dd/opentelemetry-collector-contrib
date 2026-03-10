@@ -1239,6 +1239,7 @@ func TestSupervisorAgentDescriptionConfigApplies(t *testing.T) {
 			stringKeyValue("client.id", "my-client-id"),
 			stringKeyValue("service.name", command),
 			stringKeyValue("service.version", version),
+			stringKeyValue("service.instance.id", uuid.UUID(ad.InstanceUid).String()),
 		},
 		NonIdentifyingAttributes: []*protobufs.KeyValue{
 			stringKeyValue("env", "prod"),
