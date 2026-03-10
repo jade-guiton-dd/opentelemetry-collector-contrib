@@ -1237,7 +1237,6 @@ func TestSupervisorAgentDescriptionConfigApplies(t *testing.T) {
 	expectedDescription := &protobufs.AgentDescription{
 		IdentifyingAttributes: []*protobufs.KeyValue{
 			stringKeyValue("client.id", "my-client-id"),
-			stringKeyValue("service.instance.id", uuid.UUID(ad.InstanceUid).String()),
 			stringKeyValue("service.name", command),
 			stringKeyValue("service.version", version),
 		},
