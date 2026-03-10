@@ -62,7 +62,7 @@ func TestNewOpampAgentAttributes(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, "otelcol-distro", o.agentType)
 	assert.Equal(t, "distro.0", o.agentVersion)
-	assert.Equal(t, "f8999bc1-4c9b-4619-9bae-7f009d2411ec", o.instanceID.String())
+	assert.Equal(t, "f8999bc1-4c9b-4619-9bae-7f009d2411ec", o.agentInstanceID)
 	assert.NoError(t, o.Shutdown(t.Context()))
 }
 
