@@ -1156,9 +1156,7 @@ func (s *Supervisor) composeOwnTelemetryConfig() []byte {
 
 func (s *Supervisor) composeExtraTelemetryConfig() []byte {
 	var cfg bytes.Buffer
-	resourceAttrs := map[string]string{
-		"service.instance.id": s.persistentState.InstanceID.String(),
-	}
+	resourceAttrs := map[string]string{}
 	ad := s.agentDescription.Load().(*protobufs.AgentDescription)
 	for _, attr := range ad.IdentifyingAttributes {
 		resourceAttrs[attr.Key] = attr.Value.GetStringValue()
