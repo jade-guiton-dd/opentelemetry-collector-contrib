@@ -61,6 +61,7 @@ func GetSourceProvider(set component.TelemetrySettings, configHostname string, t
 			"system":     system.NewProvider(set.Logger),
 		},
 		[]string{"config", "azure", "ecs", "ec2", "gcp", "kubernetes", "system"},
+		[]string{"kubernetes"},
 		timeout,
 	)
 	if err != nil {
